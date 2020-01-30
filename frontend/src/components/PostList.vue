@@ -7,7 +7,6 @@
       <div>
         <p class="text-center display-3">Post List</p>
       </div>
-      <br />
       <v-data-table
         :headers="headers"
         :items="posts"

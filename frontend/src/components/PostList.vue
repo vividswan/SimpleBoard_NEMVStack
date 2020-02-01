@@ -13,7 +13,7 @@
         :page.sync="page"
         :items-per-page="5"
         hide-default-footer
-        class="elevation-1"
+        class="elevation-1 blue-grey lighten-5"
         @page-count="pageCount = $event"
       >
         <template v-slot:item.title="props">

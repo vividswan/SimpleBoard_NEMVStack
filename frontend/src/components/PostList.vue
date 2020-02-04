@@ -29,22 +29,78 @@
         </div>
         <div class="col">
           <div class="d-flex flex-row-reverse">
-            <v-btn class="ma-2" tile outlined color="black darken-3">
+            <v-btn
+              class="ma-2"
+              tile
+              outlined
+              color="black darken-3"
+              @click="clickWrite()"
+            >
               <v-icon left>mdi-pencil</v-icon> Write Post
             </v-btn>
           </div>
         </div>
       </div>
     </v-container>
+    <div>
+      <v-dialog v-model="dialog" persistent max-width="600px">
+        <v-card>
+          <v-card-title>
+            <span class="headline">Write Post</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col>
+                  <v-text-field
+                    label="User Name*"
+                    required
+                    v-model="userName"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col>
+                  <v-textarea
+                    v-model="content"
+                    background-color="grey lighten-2"
+                    color="blue darken-2"
+                    label="Content"
+                    counter
+                    maxlength="2000"
+                  ></v-textarea>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="blue darken-1" text @click="dialog = false"
+              >Close</v-btn
+            >
+            <v-btn color="blue darken-1" text @click="dialog = false"
+              >Save</v-btn
+            >
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "PostList",
-
+  methods: {
+    clickWrite() {
+      this.dialog = true;
+    }
+  },
   data() {
     return {
+      userName: "",
+      content: "",
+      dialog: false,
       loading: false,
       headers: [
         {

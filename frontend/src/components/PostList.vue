@@ -13,6 +13,7 @@
         :page.sync="page"
         :items-per-page="5"
         hide-default-footer
+        :mobile-breakpoint="NaN"
         class="elevation-1 blue-grey lighten-5"
         @page-count="pageCount = $event"
       >

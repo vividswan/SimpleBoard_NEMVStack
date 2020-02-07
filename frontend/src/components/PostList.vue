@@ -7,22 +7,24 @@
       <div>
         <p class="text-center display-3">Post List</p>
       </div>
-      <v-data-table
-        :headers="headers"
-        :items="posts"
-        :page.sync="page"
-        :items-per-page="5"
-        hide-default-footer
-        :mobile-breakpoint="NaN"
-        class="elevation-1 blue-grey lighten-5"
-        @page-count="pageCount = $event"
-      >
-        <template v-slot:item.title="props">
-          <a @click="read(props.item)">
-            {{ props.item.title }}
-          </a>
-        </template>
-      </v-data-table>
+      <v-card outlined>
+        <v-data-table
+          :headers="headers"
+          :items="posts"
+          :page.sync="page"
+          :items-per-page="5"
+          hide-default-footer
+          :mobile-breakpoint="NaN"
+          class="elevation-1 blue-grey lighten-5"
+          @page-count="pageCount = $event"
+        >
+          <template v-slot:item.title="props">
+            <a @click="read(props.item)">
+              {{ props.item.title }}
+            </a>
+          </template>
+        </v-data-table>
+      </v-card>
       <div class="row">
         <div class="col"></div>
         <div class="col">

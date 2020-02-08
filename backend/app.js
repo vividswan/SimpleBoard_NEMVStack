@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 var port = porcess.env.PORT || 5000;
 
-var router = require("./routes")(app);
+var router = require("./routes")(app, Post);
 
 var server = app.listen(port, () => {
   console.log("Express server has started on port " + port);

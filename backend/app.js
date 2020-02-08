@@ -13,3 +13,11 @@ var router = require("./routes")(app);
 var server = app.listen(port, () => {
   console.log("Express server has started on port " + port);
 });
+
+var db = mongoose.connection;
+db.on("error", console.error);
+db.once("open", () => {
+  console.log("Connected to mongod server");
+});
+
+mongoose.connect("mongodb://localhost/monogdb_tutorial");

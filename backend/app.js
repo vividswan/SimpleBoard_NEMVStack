@@ -16,7 +16,7 @@ var Post = require("./models/post");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = porcess.env.PORT || 5000;
+var port = process.env.PORT || 5000;
 
 var router = require("./routes")(app, Post);
 

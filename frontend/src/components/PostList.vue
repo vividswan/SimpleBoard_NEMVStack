@@ -107,7 +107,10 @@ export default {
   },
   data() {
     return {
-      posts: "",
+      posts: [],
+      page: 1,
+      pageCount: 0,
+      itemsPerPage: 10,
       userName: "",
       content: "",
       dialog: false,

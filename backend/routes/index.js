@@ -1,6 +1,6 @@
 module.exports = function(app, Post) {
   // Get All Posts
-  app.get("/api/posts", (res, req) => {
+  app.get("/api/posts", (req, res) => {
     Post.find((err, posts) => {
       if (err) return res.satus(500).send({ error: "database failure" });
       res.json(posts);
@@ -8,7 +8,7 @@ module.exports = function(app, Post) {
   });
 
   // View One Post
-  app.get("api/posts/:post_id", (res, req) => {
+  app.get("api/posts/:post_id", (req, res) => {
     Post.findOne({ _id: req.params.post_id }, (err, book) => {
       if (err) return res.status(500).json({ error: err });
       if (!post) return res.status(404).json({ error: "post not found" });
@@ -52,7 +52,7 @@ module.exports = function(app, Post) {
   });
 
   // Delete Post
-  app.delete("api/posts/:post_id", (res, req) => {
+  app.delete("api/posts/:post_id", (req, res) => {
     Post.remove({ _id: req.params.post_id }, (err, output) => {
       if (err) return res.status(500).json({ error: "database failure" });
 

@@ -97,7 +97,7 @@ export default {
   name: "PostList",
   mounted() {
     axios.get("/api/posts").then(res => {
-      this.posts = res.data;
+      this.posts = res.data.posts;
     });
   },
   methods: {

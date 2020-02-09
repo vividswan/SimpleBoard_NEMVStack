@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+const cors = require("cors");
 
 var db = mongoose.connection;
 db.on("error", console.error);

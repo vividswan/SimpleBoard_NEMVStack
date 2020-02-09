@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 const cors = require("cors");
 
+app.use(cors());
 var db = mongoose.connection;
 db.on("error", console.error);
 db.once("open", () => {

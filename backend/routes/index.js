@@ -1,4 +1,5 @@
 module.exports = function(app, Post) {
+  // Get All Posts
   app.get("/api/posts", (res, req) => {
     Post.find((err, posts) => {
       if (err) return res.satus(500).send({ error: "database failure" });
@@ -6,6 +7,7 @@ module.exports = function(app, Post) {
     });
   });
 
+  // View One Post
   app.get("api/posts/:post_id", (res, req) => {
     Post.findOne({ _id: req.params.post_id }, (err, book) => {
       if (err) return res.status(500).json({ error: err });
@@ -14,6 +16,7 @@ module.exports = function(app, Post) {
     });
   });
 
+  // Write Post
   app.post("api/post", (req, res) => {
     var post = new Post();
     post.title = req.body.title;
@@ -31,6 +34,7 @@ module.exports = function(app, Post) {
     });
   });
 
+  // Modify Post
   app.put("/api/posts/:post_id", (req, res) => {
     Post.findById(req.params.post_id, (err, post) => {
       if (err) return res.satus(500).json({ error: "database failure" });
@@ -47,6 +51,7 @@ module.exports = function(app, Post) {
     });
   });
 
+  // Delete Post
   app.delete("api/posts/:post_id", (res, req) => {
     Post.remove({ _id: req.params.post_id }, (err, output) => {
       if (err) return res.status(500).json({ error: "database failure" });

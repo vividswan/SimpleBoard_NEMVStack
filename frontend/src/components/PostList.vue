@@ -92,8 +92,14 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "PostList",
+  mounted() {
+    axios.get("/api/posts").then(res => {
+      this.posts = res.data;
+    });
+  },
   methods: {
     clickWrite() {
       this.dialog = true;
@@ -101,17 +107,12 @@ export default {
   },
   data() {
     return {
+      posts: "",
       userName: "",
       content: "",
       dialog: false,
       loading: false,
       headers: [
-        {
-          text: "  번호",
-          align: "left",
-          sortable: false,
-          value: "number"
-        },
         {
           text: "제목",
           value: "title",
@@ -119,7 +120,7 @@ export default {
           width: "50%"
         },
         { text: "작성자", value: "author", sortable: false },
-        { text: "작성일", value: "created_date", width: "20%" }
+        { text: "작성일", value: "created_date", width: "20%", sortable: true }
       ]
     };
   }

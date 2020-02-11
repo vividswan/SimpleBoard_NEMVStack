@@ -1,10 +1,19 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 
+const app = express();
+const port = process.env.PORT || 3000;
+
 app.use(cors());
+app.use(express.static("public"));
+
+app.use("/", require("./routes"));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 var db = mongoose.connection;
 db.on("error", console.error);
 db.once("open", () => {
@@ -16,15 +25,4 @@ mongoose.connect("mongodb://localhost/monogdb_tutorial", {
   useNewUrlParser: true
 });
 
-var Post = require("./models/post");
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-var port = process.env.PORT || 3000;
-
-var router = require("./routes")(app, Post);
-
-var server = app.listen(port, () => {
-  console.log("Express server has started on port " + port);
-});
+app.listen(port, () => console.log(`Server listening on port ${port}`));

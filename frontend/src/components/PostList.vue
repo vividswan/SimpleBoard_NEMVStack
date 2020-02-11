@@ -5,7 +5,7 @@
     </div>
     <v-container>
       <div>
-        <p class="text-center display-3">Post List</p>
+        <p class="text-center display-3">Post List{{ posts }}</p>
       </div>
       <v-card outlined>
         <v-data-table
@@ -92,12 +92,11 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   name: "PostList",
   mounted() {
-    axios.get("/api/posts").then(res => {
-      this.posts = res.data.posts;
+    this.$http.get("/api/posts").then(res => {
+      this.posts = res.posts;
     });
   },
   methods: {

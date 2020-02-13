@@ -5,14 +5,14 @@
     </div>
     <v-container>
       <div>
-        <p class="text-center display-3">Post List{{ posts }}</p>
+        <p class="text-center display-3">Post List</p>
       </div>
       <v-card outlined>
         <v-data-table
           :headers="headers"
           :items="posts"
           :page.sync="page"
-          :items-per-page="5"
+          :items-per-page="itemsPerPage"
           hide-default-footer
           :mobile-breakpoint="NaN"
           class="elevation-1 blue-grey lighten-5"
@@ -100,12 +100,14 @@ export default {
     });
   },
   methods: {
+    makePost() {},
     clickWrite() {
       this.dialog = true;
     }
   },
   data() {
     return {
+      title: "",
       posts: [],
       page: 1,
       pageCount: 0,

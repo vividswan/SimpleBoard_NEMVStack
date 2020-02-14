@@ -81,9 +81,7 @@
             <v-btn color="blue darken-1" text @click="dialog = false"
               >Close</v-btn
             >
-            <v-btn color="blue darken-1" text @click="dialog = false"
-              >Save</v-btn
-            >
+            <v-btn color="blue darken-1" text @click="writePost()">Save</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -103,6 +101,9 @@ export default {
     makePost() {},
     clickWrite() {
       this.dialog = true;
+    },
+    writePost() {
+      this.dialog = false;
     }
   },
   data() {

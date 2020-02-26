@@ -4,13 +4,30 @@ module.exports = function(app) {
   });
 
   app.post("/add", (req, res) => {
-    res.send("post success");
-    db.collection("post").insertOne({
-      title: req.body.title,
-      author: req.body.author,
-      created_date: Date.now()
+    db.collection("counter").findOne({ name: "amount of posts" }, function(
+      err,
+      data
+    ) {
+      var postNum = data.totalPost;
+      db.collection("post").insertOne(
+        {
+          _id: postNum + 1,
+          title: req.body.title,
+          author: req.body.author,
+          created_date: Date.now()
+        },
+        function(err, data) {
+          db.collection("counter").updateOne(
+            { name: "amount of posts" },
+            { $inc: { totalPost: 1 } },
+            function(err, data) {
+              console.log("post Ok");
+              req.send("Save OK");
+            }
+          );
+        }
+      );
     });
-    db.collection;
   });
 
   app.get("/list", (req, res) => {

@@ -90,10 +90,11 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "PostList",
   mounted() {
-    this.$http.get("/api/posts").then(res => {
+    axios.get("/api/posts").then(res => {
       this.posts = res.posts;
     });
   },

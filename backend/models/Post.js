@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const postSchema = mongoose.Schema({
   title: { type: String, default: "", maxlength: 50 },
+  content: { type: String, default: "" },
   author: { type: String, default: "이름없음" },
   created_date: { type: Date, default: Date.now() }
 });

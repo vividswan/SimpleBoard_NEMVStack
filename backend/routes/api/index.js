@@ -18,7 +18,7 @@ router.get("/", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
   const { title, content, author, created_date } = req.body; //  Object Destructuring
-  const post = new Post({ title, author, created_date });
+  const post = new Post({ title, content, author, created_date });
   post
     .save()
     .then(ans => {
@@ -32,7 +32,10 @@ router.post("/", (req, res, next) => {
 router.put(":id", (req, res, next) => {
   const id = req.params.id;
   const { title, content, author, created_date } = req.body;
-  Post.updateOne({ _id: id }, { $set: { title, author, created_date } })
+  Post.updateOne(
+    { _id: id },
+    { $set: { title, content, author, created_date } }
+  )
     .then(ans => {
       res.send({ success: true, msg: ans });
     })

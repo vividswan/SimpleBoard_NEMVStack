@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const { title, content, author, created_date } = req.body;
+  const { title, content, author, created_date } = req.body; //  Object Destructuring
   const post = new Post({ title, author, created_date });
   post
     .save()

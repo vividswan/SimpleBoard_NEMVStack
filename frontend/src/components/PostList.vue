@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div>
-      <v-text-field color="blue" loading disabled v-if="loading"></v-text-field>
+    <div v-if="loading">
+      <v-text-field color="blue" loading disabled></v-text-field>
     </div>
-    <v-container>
+    <v-container v-else>
       <div>
         <p class="text-center display-3">Post List</p>
       </div>
@@ -113,6 +113,7 @@ export default {
         );
         return post;
       });
+      this.loading = false;
     });
   },
   methods: {
@@ -146,7 +147,7 @@ export default {
       userName: "",
       content: "",
       dialog: false,
-      loading: false,
+      loading: true,
       headers: [
         {
           text: "제목",

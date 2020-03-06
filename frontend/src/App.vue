@@ -10,20 +10,14 @@
     </v-app-bar>
     <br />
     <v-content>
-      <PostList />
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import PostList from "./components/PostList";
-
 export default {
   name: "App",
-
-  components: {
-    PostList
-  },
 
   data: () => ({
     //

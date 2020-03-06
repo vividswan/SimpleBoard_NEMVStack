@@ -10,3 +10,4 @@ Node.js, Express.js, MongoDB(Mongoose), Vue.js(vuetify)를 활용한 CRUD Simple
 - 게시물의 mongodb 데이터를 위한 model 및 schema 생성 - [3589509](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/35895091eb8703e24e6ba87588d4b51fc8b7a1e3)<br>
 - get, post, put, delete 작업을 위한 router 작성 (Object Destructuring 사용) - [9b7490d](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/9b7490d8af078dec3ab810f43811372723f9cf36)<br>
 - moment를 활용한 게시물 작성시간 표시 - [297bd26](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/297bd260bf6fe1cda6ed06d5b75736fc65e87c05)<br>
+- mongoose-auto-increment를 이용한 게시물 번호 생성(DOCUMENT id를 넘버링) - [ce1012d](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/ce1012dbb8a8c5469cf2b97526e03b7f74291a1d)

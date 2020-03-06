@@ -150,12 +150,18 @@ export default {
       loading: true,
       headers: [
         {
+          text: "번호",
+          value: "_id",
+          sortable: true,
+          width: "20%"
+        },
+        {
           text: "제목",
           value: "title",
           sortable: false,
           width: "40%"
         },
-        { text: "작성자", value: "author", sortable: false },
+        { text: "작성자", value: "author", width: "10%", sortable: false },
         { text: "작성일", value: "created_date", width: "20%", sortable: true }
       ]
     };

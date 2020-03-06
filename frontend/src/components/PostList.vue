@@ -64,6 +64,15 @@
               </v-row>
               <v-row>
                 <v-col>
+                  <v-text-field
+                    label="Title*"
+                    required
+                    v-model="title"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col>
                   <v-textarea
                     v-model="content"
                     background-color="grey lighten-2"
@@ -91,11 +100,19 @@
 
 <script>
 import axios from "axios";
+import moment from "moment";
 export default {
   name: "PostList",
   mounted() {
-    axios.get("/api/posts").then(res => {
-      this.posts = res.posts;
+    axios.get("/api").then(ans => {
+      /* eslint-disable no-console */
+      console.log(ans.data);
+      this.posts = ans.data.posts.map(post => {
+        post.created_date = moment(post.created_date).format(
+          "YYYY/MM/DD HH:mm"
+        );
+        return post;
+      });
     });
   },
   methods: {
@@ -105,6 +122,18 @@ export default {
     },
     writePost() {
       this.dialog = false;
+      axios
+        .post("/api", {
+          title: this.title,
+          content: this.content,
+          author: this.userName
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(response => {
+          console.log(response);
+        });
     }
   },
   data() {
@@ -123,7 +152,7 @@ export default {
           text: "제목",
           value: "title",
           sortable: false,
-          width: "50%"
+          width: "40%"
         },
         { text: "작성자", value: "author", sortable: false },
         { text: "작성일", value: "created_date", width: "20%", sortable: true }

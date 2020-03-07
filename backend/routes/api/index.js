@@ -6,6 +6,17 @@ const Post = require("../../models/Post");
 //   res.send("respond with a resource");
 // });
 
+router.get("/:id", (req, res, next) => {
+  const id = parseInt(req.params.id);
+  Post.findOne({ _id: id })
+    .then(ans => {
+      res.send({ success: true, post: ans });
+    })
+    .catch(err => {
+      res.send({ success: false, error: err.message });
+    });
+});
+
 router.get("/", (req, res, next) => {
   Post.find()
     .then(ans => {
@@ -46,7 +57,7 @@ router.put(":id", (req, res, next) => {
 
 router.delete("/:id", (req, res, next) => {
   const id = req.params.id;
-  User.deleteOne({ _id: id })
+  Post.deleteOne({ _id: id })
     .then(ans => {
       res.send({ success: true, msg: ans });
     })

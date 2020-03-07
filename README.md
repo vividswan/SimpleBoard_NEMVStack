@@ -13,3 +13,4 @@ Node.js, Express.js, MongoDB(Mongoose), Vue.js(vuetify)를 활용한 CRUD Simple
 - mongoose-auto-increment를 이용한 게시물 번호 생성(DOCUMENT id를 넘버링) - [ce1012d](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/ce1012dbb8a8c5469cf2b97526e03b7f74291a1d)<br>
 - v-if를 이용한 page loading 구현 - [f15d0ac](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/f15d0acd573d06ee649fd378d61c9b3c5968c181)<br>
 - frontend router 생성 및 route 추가 - [3316ac3](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/3316ac3842ff38e073effd1a4a6914bf6f505915)
+- v-card를 이용한 게시글 view 생성 - [d7c09c7](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/d7c09c773797a04b643de9f1c46d50c664f13dc0)

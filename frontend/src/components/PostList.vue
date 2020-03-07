@@ -104,19 +104,27 @@ import moment from "moment";
 export default {
   name: "PostList",
   mounted() {
-    axios.get("/api").then(ans => {
-      /* eslint-disable no-console */
-      console.log(ans.data);
-      this.posts = ans.data.posts.map(post => {
-        post.created_date = moment(post.created_date).format(
-          "YYYY/MM/DD HH:mm"
-        );
-        return post;
-      });
-      this.loading = false;
-    });
+    this.fetchList();
   },
   methods: {
+    fetchList() {
+      axios.get("/api").then(ans => {
+        /* eslint-disable no-console */
+        console.log(ans.data);
+        this.posts = ans.data.posts.map(post => {
+          post.created_date = moment(post.created_date).format(
+            "YYYY/MM/DD HH:mm"
+          );
+          return post;
+        });
+        this.loading = false;
+      });
+    },
+    read(evt) {
+      this.$router.push({
+        path: "/" + evt._id
+      });
+    },
     makePost() {},
     clickWrite() {
       this.dialog = true;
@@ -131,6 +139,8 @@ export default {
         })
         .then(response => {
           console.log(response);
+          this.loading = true;
+          this.fetchList();
         })
         .catch(response => {
           console.log(response);
@@ -143,7 +153,7 @@ export default {
       posts: [],
       page: 1,
       pageCount: 0,
-      itemsPerPage: 8,
+      itemsPerPage: 5,
       userName: "",
       content: "",
       dialog: false,

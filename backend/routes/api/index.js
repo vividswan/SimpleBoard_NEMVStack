@@ -19,6 +19,7 @@ router.get("/:id", (req, res, next) => {
 
 router.get("/", (req, res, next) => {
   Post.find()
+    .sort("-_id") // 게시글 순서를 거꾸로 보내줌
     .then(ans => {
       res.send({ success: true, posts: ans });
     })
@@ -40,13 +41,10 @@ router.post("/", (req, res, next) => {
     });
 });
 
-router.put(":id", (req, res, next) => {
+router.put("/:id", (req, res, next) => {
   const id = req.params.id;
-  const { title, content, author, created_date } = req.body;
-  Post.updateOne(
-    { _id: id },
-    { $set: { title, content, author, created_date } }
-  )
+  const { title, content, author } = req.body;
+  Post.updateOne({ _id: id }, { $set: { title, content, author } })
     .then(ans => {
       res.send({ success: true, msg: ans });
     })

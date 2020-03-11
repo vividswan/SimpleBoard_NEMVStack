@@ -117,6 +117,7 @@ export default {
           );
           return post;
         });
+
         this.loading = false;
       });
     },
@@ -125,7 +126,6 @@ export default {
         path: "/" + evt._id
       });
     },
-    makePost() {},
     clickWrite() {
       this.dialog = true;
     },

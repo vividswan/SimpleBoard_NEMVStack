@@ -2,8 +2,8 @@
 
 Node.js, Express.js, MongoDB(Mongoose), Vue.js(vuetify)를 활용한 CRUD Simple Board
 
-![](/assets/images/200312-1.mp4)
-![](/assets/images/200312-2.mp4)
+![](/assets/images/200312-1.gif)
+![](/assets/images/200312-2.gif)
 
 ---
 

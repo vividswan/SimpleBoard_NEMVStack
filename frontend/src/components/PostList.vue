@@ -107,9 +107,13 @@ export default {
     this.fetchList();
   },
   methods: {
+    toEmpty() {
+      /* eslint-disable*/
+      (this.title = ""), (this.userName = ""), (this.content = "");
+    },
     fetchList() {
+      this.toEmpty();
       axios.get("/api").then(ans => {
-        /* eslint-disable no-console */
         console.log(ans.data);
         this.posts = ans.data.posts.map(post => {
           post.created_date = moment(post.created_date).format(

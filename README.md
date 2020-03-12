@@ -35,4 +35,4 @@ yarn serve
 - v-if를 이용한 page loading 구현 - commit: [f15d0ac](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/f15d0acd573d06ee649fd378d61c9b3c5968c181)<br>
 - frontend router 생성 및 route 추가 - commit: [3316ac3](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/3316ac3842ff38e073effd1a4a6914bf6f505915)<br>
 - v-card를 이용한 게시글 view 생성 - commit: [d7c09c7](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/d7c09c773797a04b643de9f1c46d50c664f13dc0)<br>
-- sort를 이용하여 게시글 id 역순으로(-\_id) 호출 - commit: [8df726a](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/8df726acb159ca6584607c8e5510ca7ecc37c28a)<br>
+- sort를 이용하여 게시글 id 역순으로\(-\_id) 호출 - commit: [8df726a](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/8df726acb159ca6584607c8e5510ca7ecc37c28a)<br>

@@ -2,6 +2,11 @@
 
 Node.js, Express.js, MongoDB(Mongoose), Vue.js(vuetify)를 활용한 CRUD Simple Board
 
+![](/assets/images/200312-1.mp4)
+![](/assets/images/200312-2.mp4)
+
+---
+
 ## Update
 
 - vuetify data-table을 통한 post list 표시 구현 - [f038a9a](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/f038a9af916b4159d960caae3baf837f183e8300)<br>

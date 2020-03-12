@@ -2,6 +2,22 @@
 
 Node.js, Express.js, MongoDB(Mongoose), Vue.js(vuetify)를 활용한 CRUD Simple Board
 
+### 실행
+
+서버 실행(.env에서 port, Mongodb url 지정)
+
+```javascript
+cd backend
+nodemon run start
+```
+
+클라이언트 실행
+
+```javascript
+cd frontend
+yarn serve
+```
+
 ![](/assets/images/200312-1.gif)
 ![](/assets/images/200312-2.gif)
 

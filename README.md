@@ -4,14 +4,14 @@ Node.js, Express.js, MongoDB(Mongoose), Vue.js(vuetify)를 활용한 CRUD Simple
 
 ### 실행
 
-서버 실행(.env에서 port, Mongodb url 지정)
+# 서버 실행(.env에서 port, Mongodb url 지정)
 
 ```javascript
 cd backend
 nodemon run start
 ```
 
-클라이언트 실행
+# 클라이언트 실행
 
 ```javascript
 cd frontend
@@ -23,7 +23,7 @@ yarn serve
 
 ---
 
-## Update
+### Update
 
 - vuetify data-table을 통한 post list 표시 구현 - [commit: f038a9a](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/f038a9af916b4159d960caae3baf837f183e8300)<br>
 - vue.config로 backend 서버와 vue.js 연동 - [commit: f79b5f7](https://github.com/vividswan/SimpleBoard_NEMVStack/commit/f79b5f75c3c5fd2048bb046a79459a096c3d703b)<br>

@@ -154,10 +154,7 @@ export default {
         .then(() => {
           this.$router.go(-1);
         })
-        .catch(err => {
-          /* eslint-disable no-console */
-          console.log(err);
-        });
+        .catch();
     },
     clickDelete() {
       this.deleteDialog = true;
@@ -167,8 +164,6 @@ export default {
     },
     fetchPost() {
       axios.get("/api" + this.$route.params.id).then(ans => {
-        /* eslint-disable no-console */
-        console.log(ans.data);
         this.post = ans.data.post;
         this.post.created_date = moment(this.post.created_date).format(
           "YYYY/MM/DD HH:mm"

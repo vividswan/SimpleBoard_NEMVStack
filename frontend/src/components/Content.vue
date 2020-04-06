@@ -128,16 +128,13 @@ export default {
         .put("api" + this.$route.params.id, {
           title: this.editTitle,
           content: this.editContent,
-          author: this.editAuthor
+          author: this.editAuthor,
         })
         .then(() => {
           this.editDialog = false;
           this.fetchPost();
         })
-        .catch(err => {
-          /* eslint-disable no-console */
-          console.log(err);
-        });
+        .catch(() => {});
       this.editDialog = false;
       this.fetchPost();
     },
@@ -163,14 +160,14 @@ export default {
       this.$router.go(-1);
     },
     fetchPost() {
-      axios.get("/api" + this.$route.params.id).then(ans => {
+      axios.get("/api" + this.$route.params.id).then((ans) => {
         this.post = ans.data.post;
         this.post.created_date = moment(this.post.created_date).format(
           "YYYY/MM/DD HH:mm"
         );
         this.loading = false;
       });
-    }
+    },
   },
   data() {
     return {
@@ -180,8 +177,8 @@ export default {
       editContent: "",
       deleteDialog: false,
       loading: true,
-      post: []
+      post: [],
     };
-  }
+  },
 };
 </script>

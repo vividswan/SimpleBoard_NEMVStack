@@ -141,7 +141,6 @@ export default {
           author: this.userName,
         })
         .then((response) => {
-          console.log(response);
           this.loading = true;
           this.fetchList();
         })

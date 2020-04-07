@@ -113,9 +113,8 @@ export default {
     },
     fetchList() {
       this.toEmpty();
-      axios.get("/api").then(ans => {
-        console.log(ans.data);
-        this.posts = ans.data.posts.map(post => {
+      axios.get("/api").then((ans) => {
+        this.posts = ans.data.posts.map((post) => {
           post.created_date = moment(post.created_date).format(
             "YYYY/MM/DD HH:mm"
           );
@@ -127,7 +126,7 @@ export default {
     },
     read(evt) {
       this.$router.push({
-        path: "/" + evt._id
+        path: "/" + evt._id,
       });
     },
     clickWrite() {
@@ -139,17 +138,17 @@ export default {
         .post("/api", {
           title: this.title,
           content: this.content,
-          author: this.userName
+          author: this.userName,
         })
-        .then(response => {
+        .then((response) => {
           console.log(response);
           this.loading = true;
           this.fetchList();
         })
-        .catch(response => {
+        .catch((response) => {
           console.log(response);
         });
-    }
+    },
   },
   data() {
     return {
@@ -167,18 +166,18 @@ export default {
           text: "번호",
           value: "_id",
           sortable: true,
-          width: "20%"
+          width: "20%",
         },
         {
           text: "제목",
           value: "title",
           sortable: false,
-          width: "40%"
+          width: "40%",
         },
         { text: "작성자", value: "author", width: "10%", sortable: false },
-        { text: "작성일", value: "created_date", width: "20%", sortable: true }
-      ]
+        { text: "작성일", value: "created_date", width: "20%", sortable: true },
+      ],
     };
-  }
+  },
 };
 </script>

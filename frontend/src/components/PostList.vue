@@ -144,9 +144,7 @@ export default {
           this.loading = true;
           this.fetchList();
         })
-        .catch((response) => {
-          console.log(response);
-        });
+        .catch((response) => {});
     },
   },
   data() {

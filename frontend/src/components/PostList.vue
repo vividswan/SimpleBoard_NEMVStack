@@ -108,7 +108,6 @@ export default {
   },
   methods: {
     toEmpty() {
-      /* eslint-disable*/
       (this.title = ""), (this.userName = ""), (this.content = "");
     },
     fetchList() {

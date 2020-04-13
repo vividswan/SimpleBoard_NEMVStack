@@ -29,7 +29,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const { title, content, author, created_date } = req.body; //  Object Destructuring
+  const { title, content, author, created_date } = req.body; //  Object Destructuring (객체 비구조화)
   const post = new Post({ title, content, author, created_date });
   post
     .save()
